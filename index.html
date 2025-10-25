@@ -1578,7 +1578,7 @@
 
       const TOKEN_ABI = [
         "function balanceOf(address owner) view returns (uint256)",
-        "function mint(address to) returns (bool)"
+        "function mint() payable returns (bool)"
       ];
 
       // 全局变量
@@ -2041,8 +2041,8 @@
           showLoading(loading, text, "mint中...");
           button.disabled = true;
           
-          // 调用mint函数
-          const tx = await tokenContract.mint(await signer.getAddress());
+          // 调用mint函数（无参数，使用USDT自动mint）
+          const tx = await tokenContract.mint();
           
           // 等待交易确认
           showLoading(loading, text, "等待区块确认...");
