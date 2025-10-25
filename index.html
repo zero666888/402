@@ -18,24 +18,24 @@
     </style>
     <style>
       :root {
-        --background: #080908;
-        --foreground: #f1f5f9;
-        --card: #1e293b;
-        --card-foreground: #f1f5f9;
-        --popover: #1e293b;
-        --popover-foreground: #f1f5f9;
+        --background: #e6f7ff;
+        --foreground: #0c4a6e;
+        --card: #f0f9ff;
+        --card-foreground: #0c4a6e;
+        --popover: #f0f9ff;
+        --popover-foreground: #0c4a6e;
         --primary: #f59e0b;
-        --primary-foreground: #080908;
+        --primary-foreground: #ffffff;
         --secondary: #64748b;
         --secondary-foreground: #f1f5f9;
-        --muted: #334155;
-        --muted-foreground: #94a3b8;
+        --muted: #b3e5ff;
+        --muted-foreground: #075985;
         --accent: #f97316;
-        --accent-foreground: #f1f5f9;
+        --accent-foreground: #ffffff;
         --destructive: #ef4444;
         --destructive-foreground: #f1f5f9;
-        --border: #334155;
-        --input: #334155;
+        --border: #80d4ff;
+        --input: #b3e5ff;
         --ring: #f59e0b;
         --radius: 0.75rem;
       }
@@ -56,7 +56,7 @@
 
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
-        background: linear-gradient(135deg, var(--background) 0%, #060706 100%);
+        background: #00aaff;
         background-attachment: fixed;
         color: var(--foreground);
         line-height: 1.6;
@@ -72,8 +72,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle at 20% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.03) 0%, transparent 50%);
+        background: radial-gradient(circle at 20% 50%, rgba(0, 170, 255, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(102, 208, 255, 0.12) 0%, transparent 50%);
         pointer-events: none;
         z-index: 0;
       }
@@ -482,14 +482,15 @@
       }
 
       .card {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%);
+        background: rgba(255, 255, 255, 0.75);
         border-radius: var(--radius);
-        border: 2px solid rgba(245, 158, 11, 0.3);
+        border: 2px solid rgba(59, 130, 246, 0.2);
         padding: 1.25rem;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
         backdrop-filter: blur(10px);
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
       }
 
       .card::before {
@@ -499,7 +500,7 @@
         left: 0;
         right: 0;
         height: 2px;
-        background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
         opacity: 0;
         transition: opacity 0.3s;
       }
@@ -509,10 +510,8 @@
       }
 
       .card:hover {
-        border-color: rgba(245, 158, 11, 0.6);
-        box-shadow: 
-          0 20px 40px rgba(0, 0, 0, 0.3),
-          0 0 20px rgba(245, 158, 11, 0.1);
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
         transform: translateY(-2px);
       }
 
@@ -528,26 +527,20 @@
         top: 1.25rem;
         right: 1.25rem;
         z-index: 1000;
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
+        background: rgba(255, 255, 255, 0.85);
         backdrop-filter: blur(20px);
-        border: 2px solid rgba(245, 158, 11, 0.6);
+        border: 2px solid rgba(59, 130, 246, 0.3);
         border-radius: 1rem;
         padding: 0.875rem 1.125rem;
-        box-shadow: 
-          0 20px 40px rgba(0, 0, 0, 0.4),
-          0 0 20px rgba(245, 158, 11, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
         min-width: 220px;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .wallet-widget:hover {
         transform: translateY(-2px);
-        box-shadow: 
-          0 25px 50px rgba(0, 0, 0, 0.5),
-          0 0 30px rgba(245, 158, 11, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        border-color: rgba(245, 158, 11, 0.8);
+        box-shadow: 0 12px 32px rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.5);
       }
 
       @media (min-width: 768px) {
@@ -576,13 +569,9 @@
         letter-spacing: 0.3px;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: linear-gradient(135deg, var(--primary) 0%, #ea8906 50%, #d97706 100%);
-        background-size: 200% 100%;
-        background-position: 0% 0%;
-        color: var(--primary-foreground);
-        box-shadow: 
-          0 4px 12px rgba(245, 158, 11, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        color: white;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         position: relative;
         overflow: hidden;
       }
@@ -600,10 +589,7 @@
 
       .wallet-widget-btn:hover {
         transform: translateY(-2px) scale(1.02);
-        box-shadow: 
-          0 8px 20px rgba(245, 158, 11, 0.5),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        background-position: 100% 0%;
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
       }
 
       .wallet-widget-btn:hover::before {
@@ -623,7 +609,7 @@
 
       .wallet-widget-info {
         font-size: 0.75rem;
-        color: var(--muted-foreground);
+        color: #075985;
         margin-bottom: 0.5rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -631,13 +617,13 @@
 
       .wallet-widget-address {
         font-size: 0.85rem;
-        color: var(--foreground);
+        color: #0c4a6e;
         word-break: break-all;
         font-family: 'SFMono-Regular', Consolas, monospace;
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(59, 130, 246, 0.1);
         padding: 0.5rem;
         border-radius: 0.375rem;
-        border: 1px solid rgba(245, 158, 11, 0.2);
+        border: 1px solid rgba(59, 130, 246, 0.2);
       }
 
       .wallet-widget-address.connected {
@@ -720,32 +706,24 @@
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, var(--primary) 0%, #ea8906 50%, #d97706 100%);
-        background-size: 200% 100%;
-        background-position: 0% 0%;
-        color: var(--primary-foreground);
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        color: white;
       }
 
       .btn-primary:hover {
-        background-position: 100% 0%;
-        box-shadow: 
-          0 8px 20px rgba(245, 158, 11, 0.4),
-          0 0 20px rgba(245, 158, 11, 0.2);
+        background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+        box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
         transform: translateY(-2px);
       }
 
       .btn-accent {
-        background: linear-gradient(135deg, var(--accent) 0%, #ea580c 50%, #c2410c 100%);
-        background-size: 200% 100%;
-        background-position: 0% 0%;
-        color: var(--accent-foreground);
+        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        color: white;
       }
 
       .btn-accent:hover {
-        background-position: 100% 0%;
-        box-shadow: 
-          0 8px 20px rgba(249, 115, 22, 0.4),
-          0 0 20px rgba(249, 115, 22, 0.2);
+        background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+        box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
         transform: translateY(-2px);
       }
 
@@ -760,7 +738,7 @@
       }
 
       .btn:disabled:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       }
 
       .info-section {
@@ -794,14 +772,15 @@
       }
 
       .contract-info {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.05) 100%);
-        border: 2px solid rgba(99, 102, 241, 0.3);
+        background: rgba(255, 255, 255, 0.6);
+        border: 2px solid rgba(59, 130, 246, 0.2);
         border-radius: var(--radius);
         padding: 1.25rem;
         margin-top: 1.75rem;
         font-size: 0.875rem;
         position: relative;
         overflow: hidden;
+        backdrop-filter: blur(10px);
       }
 
       .contract-info::before {
@@ -811,26 +790,26 @@
         left: 0;
         right: 0;
         height: 3px;
-        background: linear-gradient(90deg, transparent, #6366f1, transparent);
+        background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
       }
 
       .contract-address {
         word-break: break-all;
         font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-        color: var(--muted-foreground);
+        color: #075985;
         margin: 0.75rem 0;
         padding: 0.75rem;
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(59, 130, 246, 0.08);
         border-radius: 0.375rem;
-        border: 1px solid rgba(99, 102, 241, 0.2);
+        border: 1px solid rgba(59, 130, 246, 0.2);
         transition: all 0.3s;
         cursor: pointer;
       }
 
       .contract-address:hover {
-        background: rgba(30, 41, 59, 0.8);
-        border-color: rgba(99, 102, 241, 0.4);
-        color: var(--foreground);
+        background: rgba(59, 130, 246, 0.12);
+        border-color: rgba(59, 130, 246, 0.3);
+        color: #0c4a6e;
       }
 
       .alert {
@@ -854,17 +833,17 @@
       }
 
       .alert-success {
-        background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(16, 185, 129, 0.15) 100%);
-        border-color: rgba(16, 185, 129, 0.4);
-        color: #10b981;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        background: rgba(16, 185, 129, 0.15);
+        border-color: rgba(16, 185, 129, 0.3);
+        color: #065f46;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
       }
 
       .alert-error {
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.25) 0%, rgba(239, 68, 68, 0.15) 100%);
-        border-color: rgba(239, 68, 68, 0.4);
-        color: #ef4444;
-        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+        background: rgba(239, 68, 68, 0.15);
+        border-color: rgba(239, 68, 68, 0.3);
+        color: #991b1b;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
       }
 
       .loading-spinner {
@@ -1300,7 +1279,7 @@
     </div>
     
     <div class="min-h-screen bg-background">
-      <header class="relative overflow-hidden border-primary border-b-4" style="background: linear-gradient(135deg, rgba(8, 9, 8, 0.95) 0%, rgba(6, 7, 6, 0.95) 100%);">
+      <header class="relative overflow-hidden border-primary border-b-4" style="background: linear-gradient(135deg, rgba(179, 229, 255, 0.85) 0%, rgba(230, 247, 255, 0.9) 100%); backdrop-filter: blur(10px);">
         <div class="container mx-auto max-w-6xl" style="padding: clamp(1.5rem, 4vw, 7rem) 1rem;">
           <div class="flex flex-col items-center text-center" style="gap: clamp(1rem, 3vw, 3rem);">
             <div class="w-full" style="max-width: min(600px, 90vw); position: relative;">
@@ -1311,7 +1290,7 @@
                 height="900"
                 decoding="async"
                 loading="eager"
-                style="color: transparent; width: 100%; height: auto; border-radius: clamp(0.5rem, 2vw, 1rem); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.15); position: relative; z-index: 1;"
+                style="color: transparent; width: 100%; height: auto; position: relative; z-index: 1;"
                 src="b4b2b36ef83c15d6498da133662bce77.png"
               />
             </div>
@@ -1319,6 +1298,18 @@
         </div>
       </header>
       <main class="container" style="padding-top: clamp(2.5rem, 6vw, 4rem); padding-bottom: clamp(2.5rem, 6vw, 4rem);">
+        <!-- PancakeSwap 按钮 -->
+        <div style="text-align: center; margin-bottom: clamp(2.5rem, 6vw, 3.5rem);">
+          <a href="https://pancakeswap.finance/home" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: clamp(1rem, 2.5vw, 1.25rem) clamp(2rem, 5vw, 3rem); background: linear-gradient(135deg, #1fc7d4 0%, #7645d9 100%); color: white; text-decoration: none; border-radius: 12px; font-size: clamp(1.05rem, 2.5vw, 1.25rem); font-weight: 700; box-shadow: 0 8px 24px rgba(31, 199, 212, 0.3), 0 4px 12px rgba(118, 69, 217, 0.2); transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.2);" onmouseover="this.style.transform='translateY(-2px) scale(1.02)'; this.style.boxShadow='0 12px 32px rgba(31, 199, 212, 0.4), 0 6px 16px rgba(118, 69, 217, 0.3)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 24px rgba(31, 199, 212, 0.3), 0 4px 12px rgba(118, 69, 217, 0.2)';">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" opacity="0.4"/>
+              <path d="M2 17L12 22L22 17L12 12L2 17Z"/>
+              <path d="M2 12L12 17L22 12" opacity="0.7"/>
+            </svg>
+            <span>前往 PancakeSwap 交易</span>
+          </a>
+        </div>
+        
         <!-- 参与mint -->
         <section class="section" style="margin-bottom: clamp(3rem, 7vw, 5rem);">
           <div style="text-align: center; margin-bottom: clamp(2rem, 5vw, 3rem);">
@@ -1343,7 +1334,7 @@
                   <h4 style="font-size: clamp(1rem, 2.5vw, 1.15rem); font-weight: 600; color: var(--foreground);">授权 USDT</h4>
                 </div>
                 <p style="font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--muted-foreground); margin-bottom: 1.25rem; line-height: 1.6;">授权合约使用您的 USDT，只需授权一次</p>
-                <button id="approveBtn" class="btn btn-primary" onclick="approveUSDT()" disabled style="width: 100%;">
+                <button id="approveBtn" class="btn btn-primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">
                   <span class="loading-spinner" id="approveLoading" style="display: none;"></span>
                   <span id="approveText">授权 USDT</span>
                 </button>
@@ -1355,7 +1346,7 @@
                   <h4 style="font-size: clamp(1rem, 2.5vw, 1.15rem); font-weight: 600; color: var(--foreground);">开始 Mint</h4>
                 </div>
                 <p style="font-size: clamp(0.85rem, 2vw, 0.95rem); color: var(--muted-foreground); margin-bottom: 1.25rem; line-height: 1.6;">1 USDT = 402 GIGGLE402，立即获得代币</p>
-                <button id="mintBtn" class="btn btn-accent" onclick="mintGIGGLE402()" disabled style="width: 100%;">
+                <button id="mintBtn" class="btn btn-accent" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">
                   <span class="loading-spinner" id="mintLoading" style="display: none;"></span>
                   <span id="mintText">免费 Mint</span>
                 </button>
@@ -1367,11 +1358,11 @@
               <div class="grid grid-cols-1" style="gap: 1rem;">
                 <div class="contract-address" style="background: rgba(99, 102, 241, 0.15); border: 1.5px solid rgba(99, 102, 241, 0.35); padding: clamp(0.875rem, 2vw, 1rem); border-radius: 8px; transition: all 0.3s ease;">
                   <div style="font-size: clamp(0.7rem, 1.6vw, 0.8rem); color: var(--muted-foreground); margin-bottom: 0.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">GIGGLE402 合约</div>
-                  <div style="font-family: monospace; font-size: clamp(0.8rem, 2vw, 0.9rem); word-break: break-all; color: rgba(241, 245, 249, 0.95); line-height: 1.5;">0x42873167FF687a76c3f811fc574db5236563576A</div>
+                  <div style="font-family: monospace; font-size: clamp(0.8rem, 2vw, 0.9rem); word-break: break-all; color: rgba(245, 158, 11, 0.8); line-height: 1.5; font-weight: 600;">等待更新</div>
                 </div>
                 <div class="contract-address" style="background: rgba(16, 185, 129, 0.15); border: 1.5px solid rgba(16, 185, 129, 0.35); padding: clamp(0.875rem, 2vw, 1rem); border-radius: 8px; transition: all 0.3s ease;">
                   <div style="font-size: clamp(0.7rem, 1.6vw, 0.8rem); color: var(--muted-foreground); margin-bottom: 0.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">USDT 合约</div>
-                  <div style="font-family: monospace; font-size: clamp(0.8rem, 2vw, 0.9rem); word-break: break-all; color: rgba(241, 245, 249, 0.95); line-height: 1.5;">0x55d398326f99059fF775485246999027B3197955</div>
+                  <div style="font-family: monospace; font-size: clamp(0.8rem, 2vw, 0.9rem); word-break: break-all; color: rgba(245, 158, 11, 0.8); line-height: 1.5; font-weight: 600;">等待更新</div>
                 </div>
               </div>
               <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid rgba(100, 116, 139, 0.2);">
@@ -1397,80 +1388,80 @@
           
           <div class="card" style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.08) 0%, rgba(30, 41, 59, 0.5) 100%); padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem); border: 2px solid rgba(245, 158, 11, 0.3); max-width: 1000px; margin: 0 auto;">
             <div class="grid grid-cols-1 md:grid-cols-2" style="gap: clamp(1.25rem, 3vw, 1.75rem);">
-              <div style="background: rgba(30, 41, 59, 0.6); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid var(--primary); transition: all 0.3s ease; backdrop-filter: blur(10px);">
+              <div style="background: rgba(255, 255, 255, 0.75); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid var(--primary); transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);">
                 <div style="display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1rem;">
                   <div style="width: 10px; height: 10px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);"></div>
-                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: var(--foreground);">慈善概念</h3>
+                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: #0c4a6e;">慈善概念</h3>
                 </div>
-                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: var(--muted-foreground); line-height: 1.7;">20%代币捐赠GIGGLE慈善钱包，支持教育及公益事业</p>
+                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: #075985; line-height: 1.7;">20%代币捐赠GIGGLE慈善钱包，支持教育及公益事业</p>
               </div>
               
-              <div style="background: rgba(30, 41, 59, 0.6); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid var(--accent); transition: all 0.3s ease; backdrop-filter: blur(10px);">
+              <div style="background: rgba(255, 255, 255, 0.75); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid var(--accent); transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);">
                 <div style="display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1rem;">
                   <div style="width: 10px; height: 10px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 12px rgba(249, 115, 22, 0.6);"></div>
-                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: var(--foreground);">公平 Mint</h3>
+                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: #0c4a6e;">公平 Mint</h3>
                 </div>
-                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: var(--muted-foreground); line-height: 1.7;">1 USDT = 402 GIGGLE402，绝对公平，人人可参与</p>
+                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: #075985; line-height: 1.7;">1 USDT = 402 GIGGLE402，绝对公平，人人可参与</p>
               </div>
               
-              <div style="background: rgba(30, 41, 59, 0.6); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid #10b981; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+              <div style="background: rgba(255, 255, 255, 0.75); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid #10b981; transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);">
                 <div style="display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1rem;">
                   <div style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);"></div>
-                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: var(--foreground);">链上公益</h3>
+                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: #0c4a6e;">链上公益</h3>
                 </div>
-                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: var(--muted-foreground); line-height: 1.7;">每次Mint都是微公益，共同构建链上慈善生态</p>
+                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: #075985; line-height: 1.7;">每次Mint都是微公益，共同构建链上慈善生态</p>
               </div>
               
-              <div style="background: rgba(30, 41, 59, 0.6); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid #8b5cf6; transition: all 0.3s ease; backdrop-filter: blur(10px);">
+              <div style="background: rgba(255, 255, 255, 0.75); border-radius: 12px; padding: clamp(1.25rem, 3vw, 1.75rem); border-left: 4px solid #8b5cf6; transition: all 0.3s ease; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);">
                 <div style="display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1rem;">
                   <div style="width: 10px; height: 10px; background: #8b5cf6; border-radius: 50%; box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);"></div>
-                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: var(--foreground);">情绪治愈</h3>
+                  <h3 style="font-weight: 600; font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: #0c4a6e;">情绪治愈</h3>
                 </div>
-                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: var(--muted-foreground); line-height: 1.7;">公平·公链·慈善共建，是GIGGLE402的核心精神</p>
+                <p style="font-size: clamp(0.9rem, 2.2vw, 1rem); color: #075985; line-height: 1.7;">公平·公链·慈善共建，是GIGGLE402的核心精神</p>
               </div>
             </div>
           </div>
         </section>
         
         
-        <div class="separator" style="margin: clamp(3.5rem, 8vw, 6rem) auto; max-width: 200px; height: 2px; background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.5), transparent);"></div>
+        <div class="separator" style="margin: clamp(3.5rem, 8vw, 6rem) auto; max-width: 200px; height: 2px; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);"></div>
         
         <!-- 代币经济 -->
         <section class="section" style="margin-bottom: clamp(3rem, 7vw, 5rem);">
           <div style="text-align: center; margin-bottom: clamp(2.5rem, 6vw, 3.5rem);">
-            <h2 style="font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 700; color: var(--primary); margin-bottom: 1rem; letter-spacing: -0.5px;">代币经济</h2>
-            <p style="font-size: clamp(0.95rem, 2.5vw, 1.05rem); color: var(--muted-foreground); max-width: 600px; margin: 0 auto;">透明的代币分配与经济模型</p>
+            <h2 style="font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 700; color: #0c4a6e; margin-bottom: 1rem; letter-spacing: -0.5px;">代币经济</h2>
+            <p style="font-size: clamp(0.95rem, 2.5vw, 1.05rem); color: #075985; max-width: 600px; margin: 0 auto;">透明的代币分配与经济模型</p>
           </div>
           
           <!-- 核心数据概览 -->
-          <div class="card" style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(30, 41, 59, 0.75) 100%); border: 2px solid rgba(245, 158, 11, 0.4); margin-bottom: clamp(2rem, 5vw, 3rem); padding: 0; max-width: 1100px; margin-left: auto; margin-right: auto;">
-            <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(249, 115, 22, 0.08) 100%); padding: clamp(1.25rem, 3vw, 1.75rem); border-bottom: 1px solid rgba(245, 158, 11, 0.25);">
-              <h3 style="font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; color: var(--primary); text-align: center; letter-spacing: 0.3px;">核心数据</h3>
+          <div class="card" style="background: rgba(255, 255, 255, 0.85); border: 2px solid rgba(59, 130, 246, 0.25); margin-bottom: clamp(2rem, 5vw, 3rem); padding: 0; max-width: 1100px; margin-left: auto; margin-right: auto; backdrop-filter: blur(10px);">
+            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(147, 197, 253, 0.08) 100%); padding: clamp(1.25rem, 3vw, 1.75rem); border-bottom: 1.5px solid rgba(59, 130, 246, 0.2);">
+              <h3 style="font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 600; color: #0c4a6e; text-align: center; letter-spacing: 0.3px;">核心数据</h3>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3" style="padding: clamp(2rem, 5vw, 3rem) clamp(1.25rem, 3vw, 2rem); gap: clamp(2rem, 5vw, 3rem);">
               <div class="text-center" style="padding: clamp(1rem, 2.5vw, 1.5rem) clamp(0.75rem, 2vw, 1rem);">
                 <div style="display: inline-flex; align-items: center; justify-content: center; width: clamp(56px, 14vw, 70px); height: clamp(56px, 14vw, 70px); background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%); border: 2.5px solid rgba(245, 158, 11, 0.35); border-radius: 50%; margin-bottom: 1.125rem; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);">
                   <div style="width: clamp(18px, 4.5vw, 24px); height: clamp(18px, 4.5vw, 24px); background: var(--primary); border-radius: 50%; box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);"></div>
                 </div>
-                <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); text-transform: uppercase; letter-spacing: 1px; color: var(--muted-foreground); margin-bottom: 0.75rem; font-weight: 600;">代币总量</div>
-                <div class="font-bold" style="font-size: clamp(1.75rem, 5vw, 2.25rem); color: var(--primary); margin-bottom: 0.5rem; line-height: 1.1;">40,200,000</div>
-                <div style="font-size: clamp(0.8rem, 2.2vw, 0.9rem); color: rgba(241, 245, 249, 0.7);">GIGGLE402 TOKEN</div>
+                <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); text-transform: uppercase; letter-spacing: 1px; color: #075985; margin-bottom: 0.75rem; font-weight: 600;">代币总量</div>
+                <div class="font-bold" style="font-size: clamp(1.75rem, 5vw, 2.25rem); color: #f59e0b; margin-bottom: 0.5rem; line-height: 1.1;">40,200,000</div>
+                <div style="font-size: clamp(0.8rem, 2.2vw, 0.9rem); color: #64748b;">GIGGLE402 TOKEN</div>
               </div>
               <div class="text-center" style="padding: clamp(1rem, 2.5vw, 1.5rem) clamp(0.75rem, 2vw, 1rem);">
                 <div style="display: inline-flex; align-items: center; justify-content: center; width: clamp(56px, 14vw, 70px); height: clamp(56px, 14vw, 70px); background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%); border: 2.5px solid rgba(249, 115, 22, 0.35); border-radius: 50%; margin-bottom: 1.125rem; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);">
                   <div style="width: clamp(18px, 4.5vw, 24px); height: clamp(18px, 4.5vw, 24px); background: var(--accent); border-radius: 50%; box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);"></div>
                 </div>
-                <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); text-transform: uppercase; letter-spacing: 1px; color: var(--muted-foreground); margin-bottom: 0.75rem; font-weight: 600;">Mint比例</div>
-                <div class="font-bold" style="font-size: clamp(1.75rem, 5vw, 2.25rem); color: var(--accent); margin-bottom: 0.5rem; line-height: 1.1;">1 : 402</div>
-                <div style="font-size: clamp(0.8rem, 2.2vw, 0.9rem); color: rgba(241, 245, 249, 0.7);">USDT / GIGGLE402</div>
+                <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); text-transform: uppercase; letter-spacing: 1px; color: #075985; margin-bottom: 0.75rem; font-weight: 600;">Mint比例</div>
+                <div class="font-bold" style="font-size: clamp(1.75rem, 5vw, 2.25rem); color: #f97316; margin-bottom: 0.5rem; line-height: 1.1;">1 : 402</div>
+                <div style="font-size: clamp(0.8rem, 2.2vw, 0.9rem); color: #64748b;">USDT / GIGGLE402</div>
               </div>
               <div class="text-center" style="padding: clamp(1rem, 2.5vw, 1.5rem) clamp(0.75rem, 2vw, 1rem);">
                 <div style="display: inline-flex; align-items: center; justify-content: center; width: clamp(56px, 14vw, 70px); height: clamp(56px, 14vw, 70px); background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%); border: 2.5px solid rgba(16, 185, 129, 0.35); border-radius: 50%; margin-bottom: 1.125rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);">
                   <div style="width: clamp(18px, 4.5vw, 24px); height: clamp(18px, 4.5vw, 24px); background: #10b981; border-radius: 50%; box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);"></div>
                 </div>
-                <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); text-transform: uppercase; letter-spacing: 1px; color: var(--muted-foreground); margin-bottom: 0.75rem; font-weight: 600;">交易税收</div>
+                <div style="font-size: clamp(0.7rem, 2vw, 0.8rem); text-transform: uppercase; letter-spacing: 1px; color: #075985; margin-bottom: 0.75rem; font-weight: 600;">交易税收</div>
                 <div class="font-bold" style="font-size: clamp(1.75rem, 5vw, 2.25rem); color: #10b981; margin-bottom: 0.5rem; line-height: 1.1;">0%</div>
-                <div style="font-size: clamp(0.8rem, 2.2vw, 0.9rem); color: rgba(241, 245, 249, 0.7);">零税收</div>
+                <div style="font-size: clamp(0.8rem, 2.2vw, 0.9rem); color: #64748b;">零税收</div>
               </div>
             </div>
           </div>
@@ -1478,9 +1469,9 @@
           <!-- 代币分配与项目愿景 -->
           <div class="grid grid-cols-1 md:grid-cols-2" style="gap: clamp(1.5rem, 4vw, 2rem); max-width: 1100px; margin: 0 auto;">
             <!-- 代币分配 -->
-            <div class="card" style="padding: 0; overflow: hidden; border: 2px solid rgba(245, 158, 11, 0.25);">
+            <div class="card" style="padding: 0; overflow: hidden; border: 2px solid rgba(245, 158, 11, 0.25); background: rgba(255, 255, 255, 0.8);">
               <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%); padding: clamp(1.125rem, 3vw, 1.5rem); border-bottom: 1.5px solid rgba(245, 158, 11, 0.25);">
-                <h3 class="text-primary" style="font-size: clamp(1.15rem, 3vw, 1.45rem); font-weight: 600; text-align: center; letter-spacing: 0.3px;">代币分配</h3>
+                <h3 style="font-size: clamp(1.15rem, 3vw, 1.45rem); font-weight: 600; text-align: center; letter-spacing: 0.3px; color: #0c4a6e;">代币分配</h3>
               </div>
               <div style="padding: clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3vw, 1.75rem);">
                 <ul class="flex flex-col" style="gap: clamp(1.5rem, 3.5vw, 1.75rem);">
@@ -1489,13 +1480,13 @@
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 0.875rem;">
                         <div>
-                          <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.375rem; color: var(--foreground);">公平Mint</div>
-                          <div style="font-size: clamp(0.85rem, 2vw, 0.9rem); color: var(--muted-foreground);">社区Mint部分</div>
+                          <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.375rem; color: #0c4a6e;">公平Mint</div>
+                          <div style="font-size: clamp(0.85rem, 2vw, 0.9rem); color: #075985;">社区Mint部分</div>
                         </div>
                         <div class="text-accent" style="font-size: clamp(1.25rem, 3.5vw, 1.4rem); font-weight: 700;">50%</div>
                       </div>
-                      <div style="padding: clamp(0.875rem, 2vw, 1rem); background: rgba(30, 41, 59, 0.4); border-radius: 8px; border-left: 3px solid var(--primary);">
-                        <span style="font-size: clamp(0.875rem, 2vw, 0.95rem); color: rgba(241, 245, 249, 0.85); line-height: 1.5;">20,100,000 代币（未Mint完全部销毁）</span>
+                      <div style="padding: clamp(0.875rem, 2vw, 1rem); background: rgba(245, 158, 11, 0.08); border-radius: 8px; border-left: 3px solid var(--primary);">
+                        <span style="font-size: clamp(0.875rem, 2vw, 0.95rem); color: #075985; line-height: 1.5;">20,100,000 代币（未Mint完全部销毁）</span>
                       </div>
                     </div>
                   </li>
@@ -1504,13 +1495,13 @@
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 0.875rem;">
                         <div>
-                          <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.375rem; color: var(--foreground);">流动性池</div>
-                          <div style="font-size: clamp(0.85rem, 2vw, 0.9rem); color: var(--muted-foreground);">添加流动性LP</div>
+                          <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.375rem; color: #0c4a6e;">流动性池</div>
+                          <div style="font-size: clamp(0.85rem, 2vw, 0.9rem); color: #075985;">添加流动性LP</div>
                         </div>
                         <div class="text-accent" style="font-size: clamp(1.25rem, 3.5vw, 1.4rem); font-weight: 700;">30%</div>
                       </div>
-                      <div style="padding: clamp(0.875rem, 2vw, 1rem); background: rgba(30, 41, 59, 0.4); border-radius: 8px; border-left: 3px solid var(--accent);">
-                        <span style="font-size: clamp(0.875rem, 2vw, 0.95rem); color: rgba(241, 245, 249, 0.85); line-height: 1.5;">12,060,000 代币</span>
+                      <div style="padding: clamp(0.875rem, 2vw, 1rem); background: rgba(249, 115, 22, 0.08); border-radius: 8px; border-left: 3px solid var(--accent);">
+                        <span style="font-size: clamp(0.875rem, 2vw, 0.95rem); color: #075985; line-height: 1.5;">12,060,000 代币</span>
                       </div>
                     </div>
                   </li>
@@ -1519,13 +1510,13 @@
                     <div>
                       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 0.875rem;">
                         <div>
-                          <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.375rem; color: var(--foreground);">慈善捐赠</div>
-                          <div style="font-size: clamp(0.85rem, 2vw, 0.9rem); color: var(--muted-foreground);">GIGGLE官方慈善钱包</div>
+                          <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.375rem; color: #0c4a6e;">慈善捐赠</div>
+                          <div style="font-size: clamp(0.85rem, 2vw, 0.9rem); color: #075985;">GIGGLE官方慈善钱包</div>
                         </div>
                         <div style="font-size: clamp(1.25rem, 3.5vw, 1.4rem); font-weight: 700; color: #10b981;">20%</div>
                       </div>
                       <div style="padding: clamp(0.875rem, 2vw, 1rem); background: rgba(16, 185, 129, 0.1); border-radius: 8px; border-left: 3px solid #10b981;">
-                        <span style="font-size: clamp(0.875rem, 2vw, 0.95rem); color: rgba(241, 245, 249, 0.85); line-height: 1.5;">8,040,000 代币，支持教育及公益事业</span>
+                        <span style="font-size: clamp(0.875rem, 2vw, 0.95rem); color: #075985; line-height: 1.5;">8,040,000 代币，支持教育及公益事业</span>
                       </div>
                     </div>
                   </li>
@@ -1534,24 +1525,24 @@
             </div>
             
             <!-- 项目愿景 -->
-            <div class="card" style="padding: 0; overflow: hidden; border: 2px solid rgba(249, 115, 22, 0.25);">
+            <div class="card" style="padding: 0; overflow: hidden; border: 2px solid rgba(249, 115, 22, 0.25); background: rgba(255, 255, 255, 0.8);">
               <div style="background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%); padding: clamp(1.125rem, 3vw, 1.5rem); border-bottom: 1.5px solid rgba(249, 115, 22, 0.25);">
-                <h3 style="font-size: clamp(1.15rem, 3vw, 1.45rem); font-weight: 600; text-align: center; color: var(--accent); letter-spacing: 0.3px;">项目愿景</h3>
+                <h3 style="font-size: clamp(1.15rem, 3vw, 1.45rem); font-weight: 600; text-align: center; color: #0c4a6e; letter-spacing: 0.3px;">项目愿景</h3>
               </div>
               <div style="padding: clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3vw, 1.75rem);">
                 <ul class="flex flex-col" style="gap: clamp(1.75rem, 4vw, 2.25rem);">
                   <li style="position: relative; padding-left: clamp(1.25rem, 3vw, 1.5rem);">
                     <div style="position: absolute; left: 0; top: 0.5rem; width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);"></div>
                     <div>
-                      <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.75rem; color: var(--foreground);">慈善+协议新模式</div>
-                      <div style="font-size: clamp(0.875rem, 2.2vw, 0.95rem); color: rgba(241, 245, 249, 0.8); line-height: 1.7;">GIGGLE402 致力于在 BSC 链上探索「慈善 + 协议」的新模式。每一次 Mint，都是一次链上微公益。</div>
+                      <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.75rem; color: #0c4a6e;">慈善+协议新模式</div>
+                      <div style="font-size: clamp(0.875rem, 2.2vw, 0.95rem); color: #075985; line-height: 1.7;">GIGGLE402 致力于在 BSC 链上探索「慈善 + 协议」的新模式。每一次 Mint，都是一次链上微公益。</div>
                     </div>
                   </li>
                   <li style="position: relative; padding-left: clamp(1.25rem, 3vw, 1.5rem);">
                     <div style="position: absolute; left: 0; top: 0.5rem; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);"></div>
                     <div>
-                      <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.75rem; color: var(--foreground);">核心精神</div>
-                      <div style="font-size: clamp(0.875rem, 2.2vw, 0.95rem); color: rgba(241, 245, 249, 0.8); line-height: 1.7;">公平、公链、慈善共建、情绪治愈，是 GIGGLE402 的核心精神。</div>
+                      <div style="font-weight: 600; font-size: clamp(1rem, 2.5vw, 1.1rem); margin-bottom: 0.75rem; color: #0c4a6e;">核心精神</div>
+                      <div style="font-size: clamp(0.875rem, 2.2vw, 0.95rem); color: #075985; line-height: 1.7;">公平、公链、慈善共建、情绪治愈，是 GIGGLE402 的核心精神。</div>
                     </div>
                   </li>
                 </ul>
@@ -1560,24 +1551,24 @@
           </div>
         </section>
       </main>
-      <footer class="border-primary/50 border-t-2" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(8, 9, 8, 0.95) 100%); backdrop-filter: blur(15px); position: relative; padding: clamp(1.5rem, 4vw, 2.5rem) 0;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--primary), var(--accent), var(--primary), transparent);"></div>
+      <footer class="border-primary/50 border-t-2" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); position: relative; padding: clamp(1.5rem, 4vw, 2.5rem) 0; border-top: 2px solid rgba(59, 130, 246, 0.3);">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(147, 197, 253, 0.4), rgba(59, 130, 246, 0.5), transparent);"></div>
         <div class="container text-center">
           <nav style="margin-bottom: clamp(0.875rem, 2vw, 1rem);">
             <div class="flex items-center justify-center" style="flex-wrap: wrap; gap: clamp(0.5rem, 1.5vw, 1rem);">
-              <a class="social-link" href="https://x.com/GIGGLE402" target="_blank" rel="noopener noreferrer" style="text-transform: uppercase; font-size: clamp(0.75rem, 2vw, 0.85rem); letter-spacing: 0.5px; font-weight: 600;">
+              <a class="social-link" href="https://x.com/GIGGLE402" target="_blank" rel="noopener noreferrer" style="text-transform: uppercase; font-size: clamp(0.75rem, 2vw, 0.85rem); letter-spacing: 0.5px; font-weight: 600; color: #0c4a6e;">
                 Twitter / X
               </a>
-              <a class="social-link" href="https://bscscan.com/token/0x42873167FF687a76c3f811fc574db5236563576A" target="_blank" rel="noopener noreferrer" style="text-transform: uppercase; font-size: clamp(0.75rem, 2vw, 0.85rem); letter-spacing: 0.5px; font-weight: 600;">
+              <a class="social-link" href="https://bscscan.com" target="_blank" rel="noopener noreferrer" style="text-transform: uppercase; font-size: clamp(0.75rem, 2vw, 0.85rem); letter-spacing: 0.5px; font-weight: 600; color: #0c4a6e;">
                 BscScan
               </a>
             </div>
           </nav>
-          <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.4), transparent); margin: clamp(1rem, 2.5vw, 1.5rem) auto; max-width: min(300px, 80%);"></div>
-          <p style="color: var(--muted-foreground); font-size: clamp(0.8rem, 2vw, 0.95rem); margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem); font-weight: 500; line-height: 1.5;">
+          <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent); margin: clamp(1rem, 2.5vw, 1.5rem) auto; max-width: min(300px, 80%);"></div>
+          <p style="color: #075985; font-size: clamp(0.8rem, 2vw, 0.95rem); margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem); font-weight: 500; line-height: 1.5;">
             GIGGLE402 · 慈善+协议 · 公平 · 公链 · 情绪治愈
           </p>
-          <p style="color: var(--muted-foreground); font-size: clamp(0.7rem, 1.5vw, 0.85rem); opacity: 0.8;">
+          <p style="color: #64748b; font-size: clamp(0.7rem, 1.5vw, 0.85rem); opacity: 0.8;">
             &copy; 2025 GIGGLE402 Community. All rights reserved.
           </p>
         </div>
